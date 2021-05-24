@@ -38,7 +38,15 @@ def download_meldefonds(fpath) -> None:
         f.write(response.content)
 
 def csv_to_json(input_csv, output_json) -> None:
-    """Convert downloaded tax reporting fund data from csv to json format."""
+    """Convert downloaded tax reporting fund data from csv to json format.
+    
+    Parameters
+    ----------
+    input_csv : str
+        File path to csv file to be converted to json
+    output_json : str
+        File path to which converted json file is written to
+    """
 
     csv_data = pd.read_csv(input_csv, delimiter=";")
     json_data = csv_data.to_json(orient="records", force_ascii=False)
