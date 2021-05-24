@@ -1,0 +1,22 @@
+name: get-meldefonds
+on: [push]
+jobs: 
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: Download and install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirementx.txt; fi
+      - name: Download tax reporting fund data from OeKB
+        run: python meldefonds.py
+      - name: Commit latest OeKB data
+        run: |
+          git config --global user.name "get-meldefonds"
+          git commit -am "Meldefonds (`date +'%Y-%m-%d %H:%M:%S'`)"
+          git push
