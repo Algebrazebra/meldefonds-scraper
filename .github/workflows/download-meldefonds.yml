@@ -1,7 +1,7 @@
 name: get-meldefonds
 on: [push]
 jobs: 
-  check-bats-version:
+  get-meldefonds:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
