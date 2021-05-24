@@ -18,5 +18,7 @@ jobs:
       - name: Commit latest OeKB data
         run: |
           git config --global user.name "get-meldefonds"
-          git commit -am "Meldefonds (`date +'%Y-%m-%d %H:%M:%S'`)"
+          git add ./meldefonds.csv
+          git add ./meldefonds.json
+          git commit -m "Meldefonds (`date +'%Y-%m-%d %H:%M:%S'`)"
           git push
