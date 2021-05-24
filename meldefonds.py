@@ -47,7 +47,6 @@ def csv_to_json(input_csv, output_json) -> None:
     output_json : str
         File path to which converted json file is written to
     """
-
     csv_data = pd.read_csv(input_csv, delimiter=";")
     json_data = csv_data.to_json(orient="records", force_ascii=False)
     parsed_json_data = json.loads(json_data)
