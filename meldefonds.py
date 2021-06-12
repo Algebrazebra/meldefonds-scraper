@@ -24,9 +24,6 @@ def download_meldefonds(fpath) -> None:
         If request to OeKB servers fails
     """
 
-    if fpath is None:
-        fpath = DEFAULT_FPATH
-
     headers = {
         # User agent must be specified, otherwise response does not return data
         "user-agent": "", 
